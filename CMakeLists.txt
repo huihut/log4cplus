@@ -37,8 +37,8 @@ message("-- Generating build for Log4cplus version ${log4cplus_version_major}.${
 set (log4cplus_soversion 0)
 set (log4cplus_postfix "")
 
-option(LOG4CPLUS_BUILD_TESTING "Build the test suite." ON)
-option(LOG4CPLUS_BUILD_LOGGINGSERVER "Build the logging server." ON)
+option(LOG4CPLUS_BUILD_TESTING "Build the test suite." OFF)
+option(LOG4CPLUS_BUILD_LOGGINGSERVER "Build the logging server." OFF)
 
 option(LOG4CPLUS_REQUIRE_EXPLICIT_INITIALIZATION "Require explicit initialization (see log4cplus::Initializer)" OFF)
 if (LOG4CPLUS_REQUIRE_EXPLICIT_INITIALIZATION)
@@ -98,7 +98,7 @@ if (MINGW)
   option(LOG4CPLUS_MINGW_STATIC_RUNTIME "Enable MinGW static runtime" OFF)
 endif()
 
-option(WITH_UNIT_TESTS "Enable unit tests" ON)
+option(WITH_UNIT_TESTS "Enable unit tests" OFF)
 if (WITH_UNIT_TESTS)
   set (LOG4CPLUS_WITH_UNIT_TESTS 1)
   add_compile_definitions (CATCH_CONFIG_PREFIX_ALL=1)
@@ -158,7 +158,7 @@ include_directories (${log4cplus_SOURCE_DIR}/include
                      ${log4cplus_BINARY_DIR}/include
                     )
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 
 if (LOG4CPLUS_BUILD_TESTING)
   enable_testing()
